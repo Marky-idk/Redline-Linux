@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REDLINE // OS</title>
+    <style>
+        /* Modern Tech Reset & Variables */
+        :root {
+            --bg-color: #050505;
+            --accent-color: #ff2a2a;
+            --accent-glow: rgba(255, 42, 42, 0.4);
+            --text-main: #ffffff;
+            --text-muted: #8c8c8c;
+            --panel-bg: rgba(15, 15, 15, 0.75);
+            --panel-border: rgba(255, 42, 42, 0.15);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 10% 20%, rgba(255, 42, 42, 0.05) 0%, transparent 40%),
+                radial-gradient(circle at 90% 80%, rgba(255, 42, 42, 0.03) 0%, transparent 40%);
+        }
+
+        /* Container Layout */
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            padding: 40px 20px;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        @media (max-width: 968px) {
+            .container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+        }
+
+        /* Left Side: Hero Text & Actions */
+        .hero-section {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .badge {
+            align-self: flex-start;
+            background: rgba(255, 42, 42, 0.1);
+            border: 1px solid rgba(255, 42, 42, 0.3);
+            color: var(--accent-color);
+            padding: 6px 14px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        @media (max-width: 968px) {
+            .badge {
+                align-self: center;
+            }
+        }
+
+        h1 {
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            text-transform: uppercase;
+        }
+
+        h1 span {
+            color: var(--accent-color);
+            text-shadow: 0 0 30px var(--accent-glow);
+        }
+
+        .tagline {
+            color: var(--text-muted);
+            font-size: 1.25rem;
+            line-height: 1.6;
+            max-width: 540px;
+        }
+
+        @media (max-width: 968px) {
+            .tagline {
+                margin: 0 auto;
+            }
+        }
+
+        /* Action Buttons */
+        .cta-group {
+            display: flex;
+            gap: 16px;
+            margin-top: 10px;
+        }
+
+        @media (max-width: 968px) {
+            .cta-group {
+                justify-content: center;
+            }
+        }
+
+        .btn-primary {
+            background: #111111;
+            color: var(--accent-color);
+            padding: 16px 36px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            border: 1px solid var(--accent-color);
+            box-shadow: 0 0 15px rgba(255, 42, 42, 0.1);
+            cursor: not-allowed;
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-main);
+            padding: 16px 28px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+        }
+
+        /* Right Side: Terminal UI Element */
+        .mock-window {
+            background: var(--panel-bg);
+            border: 1px solid var(--panel-border);
+            border-radius: 12px;
+            backdrop-filter: blur(12px);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+            overflow: hidden;
+            font-family: 'Courier New', Courier, monospace;
+            text-align: left;
+        }
+
+        .window-header {
+            background: rgba(0, 0, 0, 0.4);
+            padding: 14px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .window-dots {
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+        }
+        .dot.red { background: #ff5f56; }
+
+        .window-title {
+            margin: 0 auto;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            transform: translateX(-16px);
+        }
+
+        .window-body {
+            padding: 24px;
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #e0e0e0;
+        }
+
+        .text-accent { color: var(--accent-color); }
+        .text-success { color: #4af626; }
+        .text-warning { color: #ffb700; }
+        .text-dim { color: #666; }
+
+        /* Animation Accents */
+        .pulse {
+            display: inline-block;
+            width: 8px;
+            height: 15px;
+            background: var(--accent-color);
+            margin-left: 4px;
+            animation: blink 1s infinite;
+            vertical-align: middle;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 0; }
+            50% { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Left Column -->
+        <div class="hero-section">
+            <div class="badge">Live ISO Edition</div>
+            <h1>Shift into<br><span>RedLine Linux</span></h1>
+            <p class="tagline">A minimalist, bare-metal high performance custom Linux distribution built for complete system control, debloated operations, and developer efficiency.</p>
+            
+            <div class="cta-group">
+                <a href="#" onclick="return false;" class="btn-primary">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+                    Launching Soon
+                </a>
+                <a href="https://github.com/Marky-idk/Redline-Linux" target="_blank" class="btn-secondary">Source Code</a>
+            </div>
+        </div>
+
+        <!-- Right Column -->
+        <div class="mock-window">
+            <div class="window-header">
+                <div class="window-dots">
+                    <div class="dot red"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="window-title">live@Redline:~</div>
+            </div>
+            <div class="window-body">
+                <p><span class="text-accent">❯</span> fastfetch</p>
+                <p class="text-dim">------------------------</p>
+                <p><span class="text-accent">OS:</span> RedLine Linux x86_64</p>
+                <p><span class="text-accent">Kernel:</span> 6.x-custom-performance</p>
+                <p><span class="text-accent">Shell:</span> bash 5.2</p>
+                <p><span class="text-accent">WM:</span> Minimalist / Custom Display</p>
+                <p><span class="text-accent">Status:</span> Highly Optimised / Active</p>
+                <p class="text-dim">------------------------</p>
+                <br>
+                <p><span class="text-accent">❯</span> systemctl status redline-deploy</p>
+                <p class="text-warning">● staged: redline-desktop-amd64.iso verified (6.8GB)</p>
+                <p class="text-success">● status: system build complete // awaiting final mirror sync</p>
+                <p><span class="text-accent">❯</span> listening for peer sync<span class="pulse"></span></p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
