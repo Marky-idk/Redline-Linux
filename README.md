@@ -13,3 +13,8 @@ So, had the idea to scrape Ubuntu as its base and go with debian due to heavy br
 # Redline Linux 2.0 (based of Debian)
 
 I developed 2.0 based Debian, if i can publish the iso i will re-make the intial description, oml
+
+
+# REDLINE LINUX 2.0 RELEASE
+
+Figured it out someway somehow the 2.0 is here, DEBIAN BASED!! Here the link: https://mega.nz/file/g7wk0bDL#vQsFKwlWX0AyiPw4RDKP732ynCrIXBMCgIxpQoSumWg
