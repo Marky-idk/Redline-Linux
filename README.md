@@ -4,3 +4,7 @@ Redline Linux is a linux distro based off ubuntu, supporting x86_64 architecture
 
 # Redline Beta 
 RedLine Linux Beta! So happy and its my first working distro, its kind of slow, but gets the job done, only DE is KDE Plasma, but its customizable, MORE UPDATES COMING SOON!!! (releasing the iso someday, but not today or idk when)
+
+
+# Update on Redline.
+So, had the idea to scrape Ubuntu as its base and go with debian due to heavy branding and big size. Be right back.
