@@ -8,3 +8,8 @@ RedLine Linux Beta! So happy and its my first working distro, its kind of slow, 
 
 # Update on Redline.
 So, had the idea to scrape Ubuntu as its base and go with debian due to heavy branding and big size. Be right back.
+
+
+# Redline Linux 2.0 (based of Debian)
+
+I developed 2.0 based Debian, if i can publish the iso i will re-make the intial description, oml
